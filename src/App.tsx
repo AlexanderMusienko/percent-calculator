@@ -11,7 +11,7 @@ import { ThemeContext } from "./common/contexts/theme.context";
 import { useContext } from "react";
 import { NUIThemeWrapper } from "./shared/components/NextUIThemeWrapper";
 import { Bounce, Flip, Slide, ToastContainer } from "react-toastify";
-import "./index.css";
+import "./styles/index.css";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {

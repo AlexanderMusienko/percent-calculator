@@ -12,6 +12,7 @@ export const ThemeSwitch = () => {
     <Switch
       size="lg"
       color="secondary"
+      className="-mr-2"
       thumbIcon={({ isSelected, className }) =>
         isSelected ? (
           <SunIcon className={className} />
