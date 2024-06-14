@@ -17,6 +17,7 @@ import {
 import { copyToClipboard } from "../../../../shared/utils/clipboard";
 import { toast } from "react-toastify";
 import { Copy } from "../../../../assets/icons/Copy";
+import { CardInstance } from "./ui/CardInstance";
 
 export interface IBaseFields {
   percent?: string;
@@ -39,14 +40,8 @@ type TFormData = {
   differenceInPercentage: IDifferenceInPercentage;
 };
 
-const copyOnClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
-  const text = e.currentTarget.innerText;
-  toast("Успешно скопировано", { icon: Copy });
-  copyToClipboard(text);
-};
-
 const decimalItems = Array.from({ length: 5 }, (_, index) => ({
-  label: index,
+  label: String(index),
   key: index,
 }));
 
@@ -103,7 +98,7 @@ export const PercentCalc = () => {
       percentMinusNumber: subtractPercentFromNumberResult,
     }));
 
-    //Calculating difference
+    // Calculating difference
     const percentOfDifferenceResult = calculateDifferenceInPercentage(
       differenceInPercentage!,
       numberOfDecimalPlaces
@@ -124,164 +119,92 @@ export const PercentCalc = () => {
 
   return (
     <main className="relative container mx-auto max-w-7xl z-10 px-6 mb-12 flex-grow">
-      <div className="grid grid-cols-2 gap-4">
-        <Card>
-          <CardHeader className="flex">
-            <h1 className="text-xl font-bold">Вычесть процент от числа (-)</h1>
-          </CardHeader>
-          <CardBody className="flex gap-4 flex-row items-center">
-            <div className="flex gap-4 flex-column items-center">
-              <Input
-                type="number"
-                placeholder="Процент"
-                label="Процент %"
-                {...register("percentMinusNumber.percent")}
-              />
-              <p>из</p>
-              <Input
-                type="number"
-                placeholder="Число"
-                label="Число"
-                {...register("percentMinusNumber.fullNumber")}
-              />
-            </div>
-            <div className="flex gap-2 flex-row items-center flex-grow justify-between">
-              <p>=</p>
-              <p
-                onClick={copyOnClick}
-                className="text-xl font-bold cursor-pointer"
-              >
-                {results.percentMinusNumber}
-              </p>
-            </div>
-          </CardBody>
-        </Card>
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <CardInstance
+          headerText="Вычесть процент от числа (-)"
+          resultText={results.percentMinusNumber}
+        >
+          <Input
+            type="number"
+            placeholder="Процент"
+            label="Процент %"
+            {...register("percentMinusNumber.percent")}
+          />
+          <p>из</p>
+          <Input
+            type="number"
+            placeholder="Число"
+            label="Число"
+            {...register("percentMinusNumber.fullNumber")}
+          />
+        </CardInstance>
 
-        <Card>
-          <CardHeader className="flex">
-            <h1 className="text-xl font-bold">Процент от числа</h1>
-          </CardHeader>
-          <CardBody className="flex gap-4 flex-row items-center">
-            <div className="flex gap-4 flex-column items-center">
-              <Input
-                type="number"
-                placeholder="Процент"
-                label="Процент %"
-                {...register("percentOfNumber.percent")}
-              />
-              <p>от</p>
-              <Input
-                type="number"
-                placeholder="Число"
-                label="Число"
-                {...register("percentOfNumber.fullNumber")}
-              />
-            </div>
-            <div className="flex gap-2 flex-row items-center flex-grow justify-between">
-              <p>=</p>
-              <p
-                onClick={copyOnClick}
-                className="text-xl font-bold cursor-pointer"
-              >
-                {results.percentOfNumber}
-              </p>
-            </div>
-          </CardBody>
-        </Card>
+        <CardInstance
+          headerText="Процент от числа"
+          resultText={results.percentOfNumber}
+        >
+          <Input
+            type="number"
+            placeholder="Процент"
+            label="Процент %"
+            {...register("percentOfNumber.percent")}
+          />
+          <p>от</p>
+          <Input
+            type="number"
+            placeholder="Число"
+            label="Число"
+            {...register("percentOfNumber.fullNumber")}
+          />
+        </CardInstance>
 
-        <Card>
-          <CardHeader className="flex">
-            <h1 className="text-xl font-bold">Прибавить процент к числу (+)</h1>
-          </CardHeader>
-          <CardBody className="flex gap-4 flex-row items-center">
-            <div className="flex gap-4 flex-column items-center">
-              <Input
-                type="number"
-                placeholder="Процент"
-                label="Процент %"
-                {...register("percentPlusNumber.percent")}
-              />
-              <p>к</p>
-              <Input
-                type="number"
-                placeholder="Число"
-                label="Число"
-                {...register("percentPlusNumber.fullNumber")}
-              />
-            </div>
-            <div className="flex gap-2 flex-row items-center flex-grow justify-between">
-              <p>=</p>
-              <p
-                onClick={copyOnClick}
-                className="text-xl font-bold cursor-pointer"
-              >
-                {results.percentPlusNumber}
-              </p>
-            </div>
-          </CardBody>
-        </Card>
+        <CardInstance
+          headerText="Прибавить процент к числу (+)"
+          resultText={results.percentPlusNumber}
+        >
+          <Input
+            type="number"
+            placeholder="Процент"
+            label="Процент %"
+            {...register("percentPlusNumber.percent")}
+          />
+          <p>к</p>
+          <Input
+            type="number"
+            placeholder="Число"
+            label="Число"
+            {...register("percentPlusNumber.fullNumber")}
+          />
+        </CardInstance>
 
-        <Card>
-          <CardHeader className="flex">
-            <h1 className="text-xl font-bold">
-              Разница в процентах между числами (Δ%)
-            </h1>
-          </CardHeader>
-          <CardBody className="flex gap-4 flex-row items-center">
-            <div className="flex gap-4 flex-column items-center">
-              <Input
-                type="number"
-                placeholder="Число"
-                label="Число 1"
-                {...register("differenceInPercentage.fullNumber")}
-              />
-              <p>от</p>
-              <Input
-                type="number"
-                placeholder="Число"
-                label="Число 2"
-                {...register("differenceInPercentage.secondFullNumber")}
-              />
-            </div>
-            <div className="flex gap-2 flex-row items-center flex-grow justify-between">
-              <p>=</p>
-              <p
-                onClick={copyOnClick}
-                className="text-xl font-bold cursor-pointer"
-              >
-                {results.percentOfDifference}%
-              </p>
-            </div>
-          </CardBody>
-        </Card>
+        <CardInstance
+          headerText="Разница в процентах между числами (Δ%)"
+          resultText={results.percentOfDifference + "%"}
+        >
+          <Input
+            type="number"
+            placeholder="Число"
+            label="Число 1"
+            {...register("differenceInPercentage.fullNumber")}
+          />
+          <p>от</p>
+          <Input
+            type="number"
+            placeholder="Число"
+            label="Число 2"
+            {...register("differenceInPercentage.secondFullNumber")}
+          />
+        </CardInstance>
 
         <Select
           onChange={handleNumberOfDecimalPlaces}
           label="Знаков после запятой"
         >
-          <SelectItem key={0} value={0}>
-            0
-          </SelectItem>
-          <SelectItem key={1} value={1}>
-            1
-          </SelectItem>
-          <SelectItem key={2} value={2}>
-            2
-          </SelectItem>
-          <SelectItem key={3} value={3}>
-            3
-          </SelectItem>
-          <SelectItem key={4} value={4}>
-            4
-          </SelectItem>
-          <SelectItem key={5} value={5}>
-            5
-          </SelectItem>
-          {/* {decimalItems.map((decimalItem) => (
+          {decimalItems.map((decimalItem) => (
             <SelectItem key={decimalItem.key} value={decimalItem.key}>
               {decimalItem.label}
             </SelectItem>
-          ))} */}
+          ))}
         </Select>
       </div>
     </main>
