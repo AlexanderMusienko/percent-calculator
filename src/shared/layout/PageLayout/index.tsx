@@ -8,7 +8,7 @@ const GHLink = "https://github.com/AlexanderMusienko/percent-calculator";
 
 export const PageLayout = () => {
   return (
-    <div>
+    <div className="h-full">
       <Navbar className="mb-4">
         <NavbarBrand>
           <PercentIcon />

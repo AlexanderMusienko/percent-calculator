@@ -118,7 +118,7 @@ export const PercentCalc = () => {
   }, [watch, numberOfDecimalPlaces]);
 
   return (
-    <main className="relative container mx-auto max-w-7xl z-10 px-6 mb-12 flex-grow">
+    <main className="relative container mx-auto max-w-7xl z-10 px-6 pb-12 flex-grow">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <CardInstance
           headerText="Вычесть процент от числа (-)"

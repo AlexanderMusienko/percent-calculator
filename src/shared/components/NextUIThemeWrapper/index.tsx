@@ -9,7 +9,7 @@ type TProps = {
 export const NUIThemeWrapper: FC<TProps> = ({ themeMode, children }) => {
   return (
     <div
-      className={`${themeMode} text-foreground bg-background h-screen w-screen`}
+      className={`${themeMode} text-foreground bg-background h-full`}
     >
       {children}
     </div>
