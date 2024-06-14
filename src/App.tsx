@@ -7,10 +7,10 @@ import {
 } from "react-router-dom";
 import { PercentCalc } from "./domains/calculator/pages/percent-calc";
 import { PageLayout } from "./shared/layout/PageLayout";
-import { ThemeContext } from "./common/contexts/theme.context";
 import { useContext } from "react";
 import { NUIThemeWrapper } from "./shared/components/NextUIThemeWrapper";
 import { Flip, ToastContainer } from "react-toastify";
+import { ThemeContext } from "./common/contexts/theme.context";
 import "./styles/index.css";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,7 +18,7 @@ function App() {
   const { themeMode } = useContext(ThemeContext);
 
   return (
-    <NUIThemeWrapper themeMode={themeMode}>
+    <>
       <HashRouter>
         {/* @TODO: normal router */}
         <Routes>
@@ -39,7 +39,7 @@ function App() {
         theme={themeMode}
         transition={Flip}
       />
-    </NUIThemeWrapper>
+    </>
   );
 }
 

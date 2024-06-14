@@ -6,7 +6,7 @@ import ThemeProvider from "./common/contexts/theme.context.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <NextUIProvider className="h-full">
+    <NextUIProvider>
       <ThemeProvider>
         <App />
       </ThemeProvider>

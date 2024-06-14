@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { Switch } from "@nextui-org/react";
 import { MoonIcon } from "../../../assets/icons/MoonIcon";
 import { SunIcon } from "../../../assets/icons/SunIcon";
-import { EThemeMode } from "../../../common/types/theme.type";
 import { ThemeContext } from "../../../common/contexts/theme.context";
+import { EThemeMode } from "../../../common/types/theme.type";
 
 export const ThemeSwitch = () => {
-  const { themeMode, setThemeMode } = useContext(ThemeContext);
+  const { themeMode, changeThemeMode } = useContext(ThemeContext);
 
   return (
     <Switch
@@ -21,7 +21,7 @@ export const ThemeSwitch = () => {
         )
       }
       onChange={() => {
-        setThemeMode(
+        changeThemeMode(
           themeMode === EThemeMode.DARK ? EThemeMode.LIGHT : EThemeMode.DARK
         );
       }}
