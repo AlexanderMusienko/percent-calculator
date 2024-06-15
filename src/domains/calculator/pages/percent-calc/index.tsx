@@ -122,7 +122,7 @@ export const PercentCalc = () => {
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <CardInstance
           headerText="Вычесть процент от числа (-)"
-          resultText={results.percentMinusNumber}
+          result={results.percentMinusNumber}
         >
           <Input
             type="number"
@@ -141,7 +141,7 @@ export const PercentCalc = () => {
 
         <CardInstance
           headerText="Процент от числа"
-          resultText={results.percentOfNumber}
+          result={results.percentOfNumber}
         >
           <Input
             type="number"
@@ -160,7 +160,7 @@ export const PercentCalc = () => {
 
         <CardInstance
           headerText="Прибавить процент к числу (+)"
-          resultText={results.percentPlusNumber}
+          result={results.percentPlusNumber}
         >
           <Input
             type="number"
@@ -179,7 +179,8 @@ export const PercentCalc = () => {
 
         <CardInstance
           headerText="Разница в процентах между числами (Δ%)"
-          resultText={results.percentOfDifference + "%"}
+          result={results.percentOfDifference}
+          unit="%"
         >
           <Input
             type="number"

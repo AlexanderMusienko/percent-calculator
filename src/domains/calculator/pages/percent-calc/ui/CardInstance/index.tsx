@@ -3,11 +3,14 @@ import { FC } from "react";
 import { copyToClipboard } from "../../../../../../shared/utils/clipboard";
 import { toast } from "react-toastify";
 import { Copy } from "../../../../../../assets/icons/Copy";
+import CountUp from "react-countup";
+import { Count } from "../../../../../../shared/components/Count";
 
 type TCardInstanceProps = {
   headerText: string;
-  resultText: string | number;
+  result: string | number;
   children: React.ReactNode;
+  unit?: string;
 };
 
 const copyOnClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
@@ -18,7 +21,8 @@ const copyOnClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
 
 export const CardInstance: FC<TCardInstanceProps> = ({
   headerText,
-  resultText,
+  result,
+  unit,
   children,
 }) => {
   return (
@@ -33,7 +37,8 @@ export const CardInstance: FC<TCardInstanceProps> = ({
         <div className="flex gap-2 flex-row items-center flex-grow justify-between">
           <p>=</p>
           <p onClick={copyOnClick} className="text-xl font-bold cursor-pointer">
-            {resultText}
+            <Count end={result} />
+            {unit}
           </p>
         </div>
       </CardBody>
