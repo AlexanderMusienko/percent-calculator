@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, Navbar, NavbarBrand, NavbarItem } from "@nextui-org/react";
 import { Outlet } from "react-router-dom";
 import { ThemeSwitch } from "../../components/ThemeSwitch";
@@ -14,9 +15,9 @@ export const PageLayout = () => {
           <PercentIcon />
         </NavbarBrand>
         <NavbarItem>
-          <Link className="flex" href={GHLink}>
+          {/* <Link className="flex" href={GHLink}>
             <Github />
-          </Link>
+          </Link> */}
         </NavbarItem>
         <NavbarItem>
           <ThemeSwitch />

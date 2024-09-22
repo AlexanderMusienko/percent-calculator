@@ -1,14 +1,8 @@
-import {
-  BrowserRouter,
-  HashRouter,
-  MemoryRouter,
-  Route,
-  Routes,
-} from "react-router-dom";
+import React from "react";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { PercentCalc } from "./domains/calculator/pages/percent-calc";
 import { PageLayout } from "./shared/layout/PageLayout";
 import { useContext } from "react";
-import { NUIThemeWrapper } from "./shared/components/NextUIThemeWrapper";
 import { Flip, ToastContainer } from "react-toastify";
 import { ThemeContext } from "./common/contexts/theme.context";
 import "./styles/index.css";
