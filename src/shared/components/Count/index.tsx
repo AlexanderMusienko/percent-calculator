@@ -13,7 +13,6 @@ export const Count: FC<TCountProps> = ({ end, duration = 0.5 }) => {
   const onEnd = () => {
     setIsEnded(true);
     setPrevCount(+end);
-    console.log(end);
   };
 
   useEffect(() => {

@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Input,
-  Select,
-  SelectItem,
-} from "@nextui-org/react";
+import { Input, Select, SelectItem } from "@nextui-org/react";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -14,9 +7,6 @@ import {
   calculatePercentPlusNumber,
   subtractPercentFromNumber,
 } from "../../utils";
-import { copyToClipboard } from "../../../../shared/utils/clipboard";
-import { toast } from "react-toastify";
-import { Copy } from "../../../../assets/icons/Copy";
 import { CardInstance } from "./ui/CardInstance";
 
 export interface IBaseFields {
@@ -58,8 +48,6 @@ export const PercentCalc = () => {
   const [numberOfDecimalPlaces, setNumberOfDecimalPlaces] = useState(0);
 
   const handleNumberOfDecimalPlaces = (e: ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
-
     setNumberOfDecimalPlaces(+e.target.value);
   };
 
