@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { PercentCalc } from "./domains/calculator/pages/percent-calc";
 import { PageLayout } from "./shared/layout/PageLayout";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NUIThemeWrapper } from "./shared/components/NextUIThemeWrapper";
 import { Flip, ToastContainer } from "react-toastify";
 import { ThemeContext } from "./common/contexts/theme.context";
@@ -16,6 +16,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { themeMode } = useContext(ThemeContext);
+
+  useEffect(() => {
+    window.dumbMode = false;
+  }, []);
 
   return (
     <>

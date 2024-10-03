@@ -3,8 +3,8 @@ import { FC } from "react";
 import { copyToClipboard } from "../../../../../../shared/utils/clipboard";
 import { toast } from "react-toastify";
 import { Copy } from "../../../../../../assets/icons/Copy";
-import CountUp from "react-countup";
 import { Count } from "../../../../../../shared/components/Count";
+import { giveMeSomeMotivation } from "../../../../../../shared/utils/auido-motivation";
 
 type TCardInstanceProps = {
   headerText: string;
@@ -17,6 +17,7 @@ const copyOnClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
   const text = e.currentTarget.innerText;
   toast("Успешно скопировано", { icon: Copy });
   copyToClipboard(text);
+  window.dumbMode ? giveMeSomeMotivation() : null;
 };
 
 export const CardInstance: FC<TCardInstanceProps> = ({
